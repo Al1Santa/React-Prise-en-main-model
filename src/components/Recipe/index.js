@@ -10,7 +10,7 @@ import Ingredients from '../Ingredients';
 import Steps from '../Steps';
 import './styles.scss';
 
-console.log(recipe.title);
+// console.log(recipe.title);
 
 // == Composant
 function Recipe() {
@@ -19,7 +19,12 @@ function Recipe() {
   //  ou avec un fragment <></>
   return (
     <div className="recipe">
-      <Header title={recipe.title} />
+      <Header
+        title={recipe.title}
+        img={recipe.thumbnail}
+        author={recipe.author}
+        difficulty={recipe.difficulty}
+      />
       <Ingredients />
       <Steps />
     </div>
