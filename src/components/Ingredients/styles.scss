@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.ingredients {
+  margin-top: 1.5rem;
+  text-align: left;
+
+  .ingredient{
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid grey;
+    
+    &:last-child {
+      border-bottom:  none;
+    }
+    .quantity {
+      padding: 0.5rem 1rem;
+      background-color: vars.$maincolor;
+      color: #fff;
+      border-radius: 0.3rem;
+    }
+  }
+}
+//1heure 28
