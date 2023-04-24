@@ -1,28 +1,29 @@
+//  == Import : npm
+import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 
 // == Composant
-function Steps() {
+function Steps({ steps }) {
+
+  console.log(steps);
+  // On veut transformer chaque element du tableau en un <li>
+  const liElements = steps.map((item) => (
+    <li className="step" key={item}>
+      {item}
+    </li>
+  ));
+  console.log(liElements);
   return (
     <ol className="steps">
-      <li className="step">
-        Ajouter du lait
-      </li>
-      <li className="step">
-        Ajouter de la farine
-      </li>
-      <li className="step">
-        Ajouter 4 oeufs
-      </li>
-      <li className="step">
-        Ajouter 2 cuillères d'huile
-      </li>
-      <li className="step">
-        Ajouter une pincée de sel
-      </li>
+      {liElements}
     </ol>
   );
 }
+
+Steps.prototype = {
+  steps: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 // Export
 export default Steps;

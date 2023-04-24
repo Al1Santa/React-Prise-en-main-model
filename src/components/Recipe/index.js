@@ -25,8 +25,8 @@ function Recipe() {
         author={recipe.author}
         difficulty={recipe.difficulty}
       />
-      <Ingredients />
-      <Steps />
+      <Ingredients ingredients={recipe.ingredients} />
+      <Steps steps={recipe.instructions} />
     </div>
   );
 }

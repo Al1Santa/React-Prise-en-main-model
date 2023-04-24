@@ -1,28 +1,30 @@
+//  == Import : npm
+import PropTypes, { shape } from 'prop-types';
 // == Import
 import './styles.scss';
 // == Composant
-function Ingredients() {
+function Ingredients({ ingredients }) {
   return (
     <ul className="ingredients">
-      <li className="ingredient">
-        <span className="quantity">500g</span> de farine
-      </li>
-      <li className="ingredient">
-        <span className="quantity">1 litre</span> de lait
-      </li>
-      <li className="ingredient">
-        <span className="quantity">4</span> Oeufs
-      </li>
-      <li className="ingredient">
-        <span className="quantity">4</span> cuillères d'huile
-      </li>
-      <li className="ingredient">
-        <span className="quantity">1</span> pincée de sel
-      </li>
+      {ingredients.map((item) => (
+        <li className="ingredient" key={item.id}>
+          <span className="quantity">
+            {item.quantity} {item.unit}
+          </span> {item.name}
+        </li>
+      ))}
     </ul>
-
   );
 }
-// 59.28 minute
+Ingredients.prototype = {
+  ingredients: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      quantity: PropTypes.number.isRequired,
+      unit: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Ingredients;
